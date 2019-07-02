@@ -1,0 +1,192 @@
+实训第一天：
+1.
+liunx命令：
+
+查看日历
+Cal  月   年
+2.
+
+扩展名.sh
+Cal 7 2019
+Cal 8 2019
+Cal 9 2019
+3.
+if语句的结构
+（1）单分支if语句
+   if 条件测试操作
+ then
+  命令序列
+（2）双分支if语句
+If   条件测试操作
+Then
+   命令序列一
+Else
+   命令条件二
+fi
+
+
+数值的比较
+-eq：第一个数等于（Equal）第二个数
+-ne：第一个数不等于（Not Equal）第二个数
+-gt：第一个数大于（Greaer Than）第二个数
+-it：第一个数小于（less Than）第二个数
+-ge：第一个数大于或等于（Greaer orEqual）第二个数
+-le：第一个数小于或等于（less  orEqual）第二个数
+
+逻辑运算
+1逻辑非（否定）
+！
+2逻辑与（递进）
+&&
+3逻辑或（并列）
+||
+
+
+
+4.
+
+
+for循环语句
+For  变量名 in  取值表
+DO
+命令序列
+done
+
+
+
+for循环语句
+For  变量名 in  取值表
+DO
+命令序列
+done
+
+
+
+5代码
+
+1
+echo "carrent work directory:"
+pwd
+echo "file detail information:"
+ls -l
+~                                                                               
+2
+clear
+cal 7 2019
+cal 8 2019
+cal 9 2019
+~                                                                               
+~          
+3
+# if statement
+read -p "Please input your score(1-100)" score
+if [ $score -ge 90 ]&&[ $score -le 100 ]
+then
+   echo "$score is A!"
+elif [ $score -ge 80 ]&&[ $score -le 89 ]
+then
+   echo "$score is B!"
+elif [ $score -ge 70 ]&&[ $score -le 79 ]
+then
+   echo "$score is C!"
+elif [ $score -ge 60 ]&&[ $score -le 69 ]
+then
+   echo "$score is D!"
+else
+   echo "$score is E!"
+fi
+~   
+4
+echo "hello.liunx shell"
+echo "hello.world" > abc.txt
+~                            
+5
+#calculator application
+function sum(){
+read -p "Please Enter first number:" num1
+read -p "Please Enter second number:" num2
+sum=$((${num1}+ ${num2}))
+#sum=$(($num1+$num2))
+#sum=$((num1+$num2))
+#sum=`expr $num1 \+ $num2`
+echo "$sum"
+}
+#call function
+sum
+~                                                                               
+~       
+6
+# nine nine teble
+display=" "
+for i in {1..9}
+do
+   for j in `seq $i`
+   do
+       display="$display$j*$i=$((${j}*${i}))  "
+   done
+   display="$display\n"
+done
+echo -e $display
+
+
+6git笔记
+
+
+获取git仓库（repository）
+1.在现有的目录中初始化仓库
+Git  init
+2.克隆现有的仓库
+Git clone https://github.com/账户/URL
+3.跟踪新文件
+Git add 文件名
+4.查看项目状态
+Git    status
+5.提交变更
+Git   commit
+6.移除文件
+Git   rm  文件名
+
+远程仓库的使用：
+1.显示远程仓库
+Git    remote
+2.显示远程仓库对应的URL
+Git    remote  -v
+3.将本地文件添加到远程仓库
+Git    remote  add   仓库名 （短名称） url
+4.从远程仓库获取数据或拉取数据
+Git   fatch  远程项目名称
+5.将数据推送的远程仓库
+Git   push   项目名称   分支名称
+6.重命名远程仓库
+Git   remote  rename 原仓库名称  新仓库名称
+7.删除远程仓库
+Git  remote rm   仓库名
+
+7
+Git 首次设置：
+用户身份的设置
+Git config --global user.name “用户名”
+Git config --global user.email“个人邮箱”
+
+重置用户信息
+Git config --unset --global user.name
+Git config --unset --global user.email
+
+配置默认的文本编辑器
+Git  config --global core.editor
+C:/windows/system32/notepad.txt
+
+
+查看个人设置
+
+Git config--list
+查看某个键值
+f.g：查看用户名
+Git config user.name
+
+获取帮助
+Git help  <verb>
+获取特定命令的帮助信息
+Git <verb> --help
+在liunx下查看命令帮助
+Man git   <verb>
